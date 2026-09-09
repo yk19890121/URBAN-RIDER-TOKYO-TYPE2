@@ -14,5 +14,5 @@
     {"id":"U13","target":"Click shockwave"},
     {"id":"N07","target":"Circular reveal fullscreen collection navigation"}
   ],
-  "fonts": [{"id":"F22","target":"Anton: rail and hero display type"},{"id":"F21","target":"Bebas Neue: collection names and editorial metadata"}]
+  "fonts": [{"id":"F15","target":"Bodoni Moda: masthead, collection numbers and editorial display type"},{"id":"F21","target":"Bebas Neue: compact collection names"}]
 }

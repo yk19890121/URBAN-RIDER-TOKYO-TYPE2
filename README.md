@@ -1,6 +1,6 @@
 # URBAN RIDER TOKYO
 
-白い余白、縦長の書体、非対称な編集レイアウトで構成したグラフィックウェアのサイトです。TOPと6コレクションページを静的HTMLとして生成します。
+マットなシルバーグレー、鮮やかな赤、ハイコントラストなセリフ体で構成したTYPE2のグラフィックTシャツサイトです。独立系ファッション誌のような非対称レイアウトで、TOPと6コレクションページを静的HTMLとして生成します。
 
 ## 起動
 
@@ -60,10 +60,10 @@ BLENCI: L03・L28、F21・F22、B04・C02・I02・I09・G05・G10・C09・U08・
 
 動きを減らすOS設定を尊重します。細かいポインターが使えない端末ではカーソル演出・近接パララックスを停止し、タップで画像を拡大できます。画像自動切替は一時停止でき、別タブ表示中・モーダル表示中は進みません。
 
-フォントはAntonとBebas Neueを自己配信しています。SIL Open Font Licenseを`public/fonts/`に同梱しています。
+見出しはBodoni Moda、コレクション名はBebas Neueを自己配信しています。Bodoni ModaはGoogle Fontsの公式配布元、Bebas NeueはSIL Open Font Licenseの配布物を使用しています。
 
 ## 素材の再抽出
 
 通常の起動・ビルドに元ZIPやPythonは不要です。素材を更新する場合のみ、Pillowが利用可能なPythonで`scripts/inspect_assets.py`と`scripts/prepare_assets.py`を実行します。`inspect_assets.py`のZIPパスを環境に合わせて指定してください。元素材・検証用画像は`.source/`・`output/`に保存され、Gitから除外されます。
 
-GitHubへのpush・サイト公開は、このローカル制作には含めていません。
+`main`ブランチへのpushでGitHub Actionsが`dist/`を生成し、GitHub Pagesへ公開します。
