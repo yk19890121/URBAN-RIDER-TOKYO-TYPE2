@@ -5,6 +5,7 @@ import { collections } from '../src/collections.mjs';
 const root=path.resolve(import.meta.dirname,'..');
 const products=JSON.parse(await fs.readFile(path.join(root,'src/products.json'),'utf8'));
 const manifest=JSON.parse(await fs.readFile(path.join(root,'src/asset-manifest.json'),'utf8'));
+const assets=JSON.parse(await fs.readFile(path.join(root,'src/assets.json'),'utf8'));
 assert.equal(products.length,99,'Every workbook product must be present');
 assert.equal(new Set(products.map(p=>p.id)).size,products.length);
 for(const p of products){
@@ -16,6 +17,11 @@ for(const p of products){
 for(const [key,asset] of Object.entries(manifest)){
   if(key.startsWith('top-')) assert(asset.source.startsWith('TOP/'),`Unapproved TOP image: ${key}`);
   for(const size of ['', '-640']) await fs.access(path.join(root,'public/images',key+size+'.webp'));
+}
+for(const collection of collections){
+  const set=assets[collection.slug];
+  assert.ok(set?.top.length&&set?.hero.length&&Array.isArray(set.gallery),`Missing top/hero/gallery: ${collection.slug}`);
+  assert.equal(set.gallery.length>0,collection.slug!=='brand',`Gallery rule mismatch: ${collection.slug}`);
 }
 const pages=['index.html',...collections.map(c=>`collections/${c.slug}/index.html`)];
 let checkedLinks=0;

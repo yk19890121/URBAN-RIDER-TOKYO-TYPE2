@@ -67,3 +67,9 @@ BLENCI: L03・L28、F21・F22、B04・C02・I02・I09・G05・G10・C09・U08・
 通常の起動・ビルドに元ZIPやPythonは不要です。素材を更新する場合のみ、Pillowが利用可能なPythonで`scripts/inspect_assets.py`と`scripts/prepare_assets.py`を実行します。`inspect_assets.py`のZIPパスを環境に合わせて指定してください。元素材・検証用画像は`.source/`・`output/`に保存され、Gitから除外されます。
 
 `main`ブランチへのpushでGitHub Actionsが`dist/`を生成し、GitHub Pagesへ公開します。
+## 2026-09 画像・遷移改修
+
+- `src/assets.json` は `top` / `hero` / `gallery` の3スロット。選定画像は `scripts/remap_assets.py` で元PNGからWebPと640px版へ変換します。
+- コレクションページのギャラリーは横スクロール、非トリミング、ホバー拡大、クリック時ライトボックス。BRANDページにはギャラリーを出力しません。
+- TOPから各ブランドページへは、クリック位置から広がるN07円形リビールで遷移します。`prefers-reduced-motion` では通常遷移です。
+- 画像使用箇所は `node scripts/image_usage.mjs` で `docs/image-usage.md` に生成します。商品99点、価格、SUZURI購入URLは変更しません。
